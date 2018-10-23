@@ -1,0 +1,52 @@
+@font-face {
+	font-family: MontserratRegular;
+	font-weight: 400;
+	font-style: normal;
+	src: url(../../fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+	font-family: MontserratBold;
+	font-weight: 700;
+	font-style: normal;
+	src: url(../../fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+	font-family: RalewayRegular;
+	font-weight: 400;
+	font-style: normal;
+	src: url(../../fonts/Raleway-Regular.ttf);
+}
+
+@font-face {
+	font-family: RalewayMedium;
+	font-weight: 500;
+	font-style: normal;
+	src: url(../../fonts/Raleway-Medium.ttf);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+	color: #33363e;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: MontserratBold, Arial, Georgia, sans-serif;
+    font-size: 1.32vw;
+	margin-bottom: 1.83vw;
+	color: #33363e;
+}
+
+p {
+    font-family: MontserratRegular, Arial, Georgia, sans-serif;
+	font-size: 1.17vw;
+    line-height: 1.61vw;
+    margin: 1.46vw;
+}
+
+

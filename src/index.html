@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="my-app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/app.css">
+    <title>FrontEnd</title>
+</head>
+<body ng-controller="ctrl">
+
+<header class="header"></header>
+<div class="wrapper">
+    <main class="main_flex__nowrap flex__jcontent_between flex__align-items_start">
+        <aside class="main_flex__column flex__jcontent_start">
+            <div class="city">
+                <h2>City</h2>
+                <select class="city-input"
+                        ng-model="selectedCityId"
+                        title="Cities">
+                    <option value="">Select your city</option>
+                    <option class="city-option"
+                            ng-repeat="city in cities"
+                            ng-value="city.id">{{city.name}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="categories">
+                <h2>Categories</h2>
+                <div class="categories-row" ng-repeat="category in categories">
+                    <label class="category-name">
+                        <input type="checkbox"
+                               ng-model="checkedCategory"
+                               ng-change="checkCategory(category)"/>
+                        <span class="custom-checkbox"></span>
+                        {{category.name}}
+                        <span class="category-qty">{{categoryQty(category.id)}}</span>
+                    </label>
+
+                </div>
+            </div>
+            <div class="price-range">
+                <h2>Price</h2>
+                <div class="slider-snap"></div>
+                <div class="price-container main_flex__nowrap flex__jcontent_between flex__align-items_center">
+                    <div class="main_flex__nowrap flex__jcontent_between flex__align-items_center">
+                        <span class="slider-snap-value-lower"></span>
+                        <hr>
+                        <span class="slider-snap-value-upper"></span>
+                    </div>
+                    <div class="filter-btn">
+                        <button class="btn-blue" ng-click="priceFilter(cards)">Filter</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <section class="content main_flex flex__jcontent_start flex__align-items_start">
+            <div class="cards main_flex"
+                 ng-repeat="card in filteredByPrice | filter : categoryFilter
+                  | filter : cityFilter">
+                <a href="#" class="card">
+                    <div class="card-image">
+                        <img ng-src="./img/dataImg{{card.id+1}}.jpg" alt="image">
+                    </div>
+                    <div class="card-summary main_flex__column flex__jcontent_start">
+                        <p class="description">Affiliate Marketing - A Beginner's Guide to Earning Online</p>
+                        <div class="card-bottom main_flex__nowrap flex__jcontent_between">
+                            <span class="card-category">{{categoryName(card.category)}}</span>
+                            <span class="card-price">{{'$'+card.price}}</span>
+                        </div>
+                    </div>
+
+                </a>
+            </div>
+        </section>
+    </main>
+</div>
+<footer class="footer"></footer>
+<script src="js/main.js"></script>
+</body>
+</html>
